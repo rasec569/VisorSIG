@@ -1,0 +1,29 @@
+extends ../templates/default
+
+block content
+  div(class='row')
+    div(class='col-md-6 col-md-offset-3')
+      div(class= 'panel panel-default')
+        div(class= 'panel-heading')='Registrarme'
+        div(class='panel-body')
+          form(action='http://localhost:3000/login/registrar' menthod='post' autocomplete='on')
+            div(class='form-group')
+              label(for='id')='Identificación'
+              input(type='text' name='id' id='id' placeholder='Identificación' class='form-control')
+            div(class='form-group')
+              label(for='nom')='Nombre'
+              input(type='text' name='nom' id='nom' placeholder='Nombre' class='form-control')
+            div(class='form-group')
+              label(for='ape')='Apellido'
+              input(type='text' name='ape' id='ape' placeholder='Apellido' class='form-control')
+            div(class='form-group')
+              label(for='us')='Usuario'
+              input(type='text' name='us' id='us' placeholder='Usuario' class='form-control')
+            div(class='form-group')
+              label(for='pas')='Contraseña'
+              input(type='Password' name='pas' id='pas' placeholder='Contraseña' class='form-control')
+            div(class='form-group')
+              label(for='email')='Email'
+              input(type='email' name='email' id='email' placeholder='Email' class='form-control')
+            button(type= 'submit' class='btn btn-defaul')= 'Registrame'
+
