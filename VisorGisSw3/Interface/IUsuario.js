@@ -1,6 +1,6 @@
 var impl = require('implements');
 var user = require('./../clases/Usuario.js');
-console.log(per);
+console.log(user);
 var user2 = new user('Cesar');
 var interf=['mostrar', 'tomar'];
 if(impl(user2, interf)== true){

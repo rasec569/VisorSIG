@@ -4,7 +4,7 @@ function Usuario(Identificacion){
 	this.Apellido = Apellido;
 	this.User = User;
 	this.Pass = Pass;
-	this.emal = emal;
+	this.email = email;
 
     this.mostrar=function(){
     console.log(Nombre+'nombre');

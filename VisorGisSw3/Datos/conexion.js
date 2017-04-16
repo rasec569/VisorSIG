@@ -18,7 +18,7 @@ var pool = new pg.Pool(config);
  
 // to run a query we can acquire a client from the pool, 
 // run a query on the client, and then return the client to the pool 
-pool.connect(function(err, client, done) {
+pool.connect(function(err, client, done) { 
   if(err) {
     return console.error('error fetching client from pool', err);
   }
@@ -29,7 +29,7 @@ pool.connect(function(err, client, done) {
     if(err) {
       return console.error('error running query', err);
     }
-    console.log(result.rows[0].number);
+    console.log("Resultado de consulta:", result.rows[0].number);
     //output: 1 
   });
 });
@@ -43,4 +43,6 @@ pool.on('error', function (err, client) {
   // and so you might want to handle it and at least log it out 
   console.error('idle client error', err.message, err.stack)
 })
-module.exports = conexion;
+
+module.exports = pool;
+module.exports.config = config;
