@@ -18,31 +18,34 @@ module.exports = {
 
 	postregistrar: function (req, res, next){
 		console.log(req.body);
-		var seguridad=bcrypt.genSaltSync(10);
-		var pass=bcrypt.hasdSync(req.body.pas, seguridad);
-		console.log(req.params.id);
+		//var salt=bcrypt.genSaltSync(10);
+		//var pass=bcrypt.hasdSync(req.body.pas, salt);
+		// console.log(req.params.id);
 		var usuario = {
 			Identificacion: req.body.ide,
 			Nombre: req.body.nom,
 			Apellido: req.body.ape,
-			User: req.body.us,
-			Pass: pass,
+			user: req.body.us,
+			Pass: req.body.pas,
 			email: req.body.email,
-			msg: "Mensaje de prueba"
 		};
 		console.log('obj usuario', usuario);
 		// Si, mire el mensaje que he puesto abajo, en ese caso usted pondra en vez del select un insert o uptate
 		conexion.connect();
-		conexion.query('INSERT INTO public.persona SET ?', user, function(err, rows, fields) {
-			
+		conexion.connect
+		conexion.query("INSERT INTO persona (Identifiacion, Nombre, Apellido, User, Pass, email) VALUES ($1, $2, $3, $4, $5, $6)", [usuario.Identificacion, usuario.Nombre, usuario.Apellido, usuario.user, usuario.Pass, usuario.email]),
+		function(err, rows, fields) {
 			if (err) {
 				return console.error('error running query', err);
 			}
 			console.log("POST: Resultado:", result.rows[0]);
 			//output: 1 
-		});
-		return
+		};
 
-		//return res.send(usuario);
+		return;
+	},
+	getinicioSec: function (req, res, next){
+
+		return res.render('user/registrar.jade');
 	}
 };

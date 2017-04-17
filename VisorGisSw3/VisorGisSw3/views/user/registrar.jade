@@ -6,7 +6,7 @@ block content
       div(class='panel panel-default')
         div(class='panel-heading')= 'Registrarme'
         div(class='panel-body')
-          form(action='http://localhost:3000/login/registrar' method='post' autocomplete='off')
+          form(action='http://localhost:3000/login/registrar' method='post' autocomplete='on')
             div(class='form-group')
               label(for="ide")= 'Idetificación'
               input(type='text' name='ide' id='ide' placeholder='Idetificación' class='form-control')
@@ -18,7 +18,7 @@ block content
               input(type='text' name='ape' id='ape' placeholder='Apellido' class='form-control')
             div(class='form-group')
               label(for="us")= 'Usuario'
-              input(type='email' name='us' id='us' placeholder='Usuario' class='form-control')
+              input(type='text' name='us' id='us' placeholder='Usuario' class='form-control')
             div(class='form-group')
               label(for="pas")= 'Password'
               input(type='password' name='pas' id='pas' placeholder='Password' class='form-control')
