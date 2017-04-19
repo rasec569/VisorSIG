@@ -1,11 +1,11 @@
+var express = require('express');
+var app = express();
 //conexion postgret
 var pg = require('pg');
 // Encriptar la pass
 var bcrypt = require('bcryptjs');
 // Datos
 var conexion = require('../Datos/conexion');
-var express = require('express')
-var app = express();
 
 function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 	this.Identificacion = Identificacion,
@@ -15,7 +15,7 @@ function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 	this.Pass = Pass;
 	this.email = email;
 
-	this.registrar= function(req, res, next) {
+	this.getregistrar= function(req, res, next) {
 		res.render('./user/registrar.jade');
 	}
 
@@ -49,9 +49,6 @@ function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 		res.render('./user/inicioSec.jade',{mensaje:req.flash('mensaje')});
 	}
 
-	this.tomar = function (nombre) {
-		console.log('tomar' + Nombre);
-	}
 	return this;
 };
 
