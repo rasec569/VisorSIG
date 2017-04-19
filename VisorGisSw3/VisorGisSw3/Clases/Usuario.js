@@ -45,9 +45,6 @@ function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 
 	};
 
-	this.rais= function (req, res, next) {
-		res.render('/');
-	};
 	this.getinicioSec= function (req, res, next) {
 		res.render('./user/inicioSec.jade',{mensaje:req.flash('mensaje')});
 	}
