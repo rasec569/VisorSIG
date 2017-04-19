@@ -4,11 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var flash = require('connect-flash');
+var session = require('express-session');
+var passport = require('passport');
 var index = require('./routes/routes');
+var Per = require('./Clases/Usuario');
+require('./passport/passport')(passport);
 
 
 var app = express();
+app.use(cookieParser());
+// mensajes flahs
+app.use(flash());
+// sessiones
+app.use(session({
+  secret:'clave',
+  resave: false,
+  saveUninitialized : false
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,11 +32,12 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-
+//app.use('/login/registrar', Per);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
