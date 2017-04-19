@@ -13,4 +13,5 @@ module.exports = {
 	postregistrar: function (req, res, next) {
 		u.postregistrar(req, res, next);
 	}
+	
 };
