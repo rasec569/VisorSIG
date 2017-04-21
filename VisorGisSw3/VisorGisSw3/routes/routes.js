@@ -17,11 +17,11 @@ if(IUsuario() == true) {
 }
 
 
-//
-//router.post('/login/inicioSec', passport.authenticate('local', {
-//    successRedirect:'/',
-//    failureRedirect : 'login/inicioSec',
-//    failureflash : true
-//}));
+
+router.post('/login/inicioSec', passport.authenticate('local', {
+   successRedirect:'/',
+  failureRedirect : 'login/inicioSec',
+failureflash : true
+}));
 
 module.exports = router;
