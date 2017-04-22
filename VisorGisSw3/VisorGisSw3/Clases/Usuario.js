@@ -17,7 +17,7 @@ function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 
 	this.getregistrar= function(req, res, next) {
 		res.render('./user/registrar.jade');
-	}
+	};
 
 	this.postregistrar = function(req, res, next) {
 		console.log(req.body);
@@ -39,14 +39,15 @@ function Usuario(Identificacion, Nombre, Apellido, User, Pass, email) {
 
 				//output: 1 
 			};
-		conexion.end
+		
 		req.flash('mensaje', 'Registo corecto, puede iniciar sesion')
 		res.redirect('inicioSec');
 
 	};
 
 	this.getinicioSec= function (req, res, next) {
-		res.render('./user/inicioSec.jade',{mensaje:req.flash('mensaje')});
+		res.render('./user/inicioSec.jade',{mensaje : req.flash('mensaje')});
+	
 	}
 
 	return this;
